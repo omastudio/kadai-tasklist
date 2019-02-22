@@ -1,0 +1,19 @@
+<%= form_for(@tasks) do |task| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% task.errors.full_tasks.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= task.label :status, 'ステータス' %>
+  <%= task.text_field :status %>
+
+  <%= task.label :content, 'メッセージ' %>
+  <%= task.text_field :content %>
+
+  <%= task.submit '投稿' %>
+<% end %>
